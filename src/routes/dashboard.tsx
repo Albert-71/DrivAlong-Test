@@ -250,18 +250,25 @@ function CustomerDashboard() {
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs font-bold text-primary">{b.id}</span>
                   <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
-                    b.status === "Approved" || b.status === "Assigned" ? "bg-emerald-500/10 text-emerald-600 border border-emerald-500/30" :
-                    b.status === "Pending" ? "bg-amber-500/10 text-amber-600 border border-amber-500/30" :
-                    b.status === "Completed" ? "bg-blue-500/10 text-blue-600 border border-blue-500/30" :
-                    "bg-destructive/10 text-destructive border border-destructive/30"
+                    b.status === "Approved" || b.status === "Assigned" || b.status === "Completed" || b.status === "Pending"
+                      ? "bg-emerald-500/10 text-emerald-600 border border-emerald-500/30"
+                      : "bg-destructive/10 text-destructive border border-destructive/30"
                   }`}>
-                    {b.status === "Pending" ? "🟡 Booking Submitted & Pending Approval" : b.status === "Approved" ? "🟢 Approved" : b.status === "Declined" ? "🔴 Declined" : b.status}
+                    {b.status === "Pending" || b.status === "Completed"
+                      ? "🟢 Booking Completed"
+                      : b.status === "Approved"
+                      ? "🟢 Approved"
+                      : b.status === "Assigned"
+                      ? "🔵 Assigned"
+                      : b.status === "Declined"
+                      ? "🔴 Declined"
+                      : "🟢 Booking Completed"}
                   </span>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-bold text-foreground">{b.serviceType}</h3>
-                  <p className="text-xs font-semibold text-muted-foreground mt-0.5">{b.duration} · {b.price}</p>
+                  <p className="text-xs font-semibold text-muted-foreground mt-0.5">{b.price}</p>
                 </div>
 
                 <div className="space-y-2 border-t border-border/60 pt-3 text-xs">

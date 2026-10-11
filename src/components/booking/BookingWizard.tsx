@@ -117,7 +117,7 @@ export function BookingWizard() {
           <Sparkles className="h-3.5 w-3.5 shrink-0" /> <span className="truncate">Chauffeur Rental · Your Driver, Your Car</span>
         </div>
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight md:text-3xl">
-          {s.step < 4 ? "Book a Professional Chauffeur" : "Booking Submitted & Pending Approval"}
+          {s.step < 4 ? "Book a Professional Chauffeur" : "Booking Completed"}
         </h1>
         <ProgressBar step={s.step} />
       </div>
@@ -656,7 +656,7 @@ Thank you.`;
             disabled={processing}
             className="mt-2.5 w-full rounded-2xl py-2 text-xs font-semibold text-blue-200 hover:text-white transition disabled:opacity-50"
           >
-            Back to Duration
+            Back to Schedule
           </button>
         </div>
       </aside>
@@ -772,7 +772,7 @@ function StepConfirmation({ s }: { s: State }) {
       estimatedFare: `Base Fee: ₹${CHAUFFEUR_SERVICES[s.serviceType]?.baseFare || 299}`,
       driverId: "DAL-DRV-0001",
       driverName: "DAL-DRV-0001",
-      status: "Booking Submitted & Pending Approval via WhatsApp (+91 7306605416)",
+      status: "Booking Completed",
       customerName: user?.name || "Verified Customer",
       customerEmail: user?.email || "",
     });
@@ -787,15 +787,15 @@ function StepConfirmation({ s }: { s: State }) {
       {/* Header & Status Banner */}
       <div className="flex flex-col items-center text-center space-y-3">
         <div className="relative">
-          <div className="absolute inset-0 -m-5 animate-ping-slow rounded-full bg-amber-500/20" />
+          <div className="absolute inset-0 -m-5 animate-ping-slow rounded-full bg-emerald-500/20" />
           <div className="animate-check-pop grid h-20 w-20 place-items-center rounded-full bg-[#0B2D7A] text-[#F4B400] shadow-lift">
-            <Clock className="h-10 w-10" strokeWidth={2.4} />
+            <CheckCircle2 className="h-10 w-10 text-emerald-400" strokeWidth={2.4} />
           </div>
         </div>
 
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold text-amber-700 dark:text-amber-300">
-            🟡 Booking Submitted & Pending Approval
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300">
+            🟢 Booking Completed
           </span>
           <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
             Driver Assigned — Confirmation via WhatsApp

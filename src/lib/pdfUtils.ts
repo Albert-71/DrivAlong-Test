@@ -41,7 +41,7 @@ export function downloadRideSummaryReceipt(data: RideSummaryData) {
     .brand { font-size: 22px; font-weight: 800; color: #0b2d7a; letter-spacing: -0.5px; }
     .brand span { color: #f4b400; }
     .booking-id { font-family: monospace; font-size: 14px; font-weight: 700; background: #ebf1ff; color: #1e5ae8; padding: 6px 14px; border-radius: 99px; }
-    .status-badge { display: inline-block; font-size: 12px; font-weight: 700; background: #fef3c7; color: #92400e; padding: 6px 12px; border-radius: 99px; margin-bottom: 20px; border: 1px solid #fde68a; }
+    .status-badge { display: inline-block; font-size: 12px; font-weight: 700; background: #ecfdf5; color: #065f46; padding: 6px 12px; border-radius: 99px; margin-bottom: 20px; border: 1px solid #a7f3d0; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
     .label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.5px; }
     .value { font-size: 14px; font-weight: 600; color: #0f172a; margin-top: 4px; }
@@ -63,17 +63,13 @@ export function downloadRideSummaryReceipt(data: RideSummaryData) {
     </div>
 
     <div class="status-badge">
-      🟡 Status: ${data.status || "Pending WhatsApp Approval (+91 7306605416)"}
+      🟢 Status: ${data.status || "Booking Completed"}
     </div>
 
     <div class="grid">
       <div>
         <div class="label">Service Type</div>
         <div class="value">${data.serviceType}</div>
-      </div>
-      <div>
-        <div class="label">Duration</div>
-        <div class="value">${data.duration || "4 Hours"}</div>
       </div>
       <div>
         <div class="label">Pickup Address</div>

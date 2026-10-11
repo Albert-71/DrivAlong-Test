@@ -462,13 +462,11 @@ function AdminPanel() {
                         <div className="flex items-center gap-2">
                           <span className="font-mono text-xs font-bold text-primary">{b.id}</span>
                           <span className="text-xs font-bold text-foreground">{b.serviceType}</span>
-                          <span className="rounded-full bg-subtle px-2 py-0.5 text-[10px] font-semibold">{b.duration}</span>
                           <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${
-                            b.status === "Approved" || b.status === "Assigned" ? "bg-emerald-500/10 text-emerald-600 border border-emerald-500/30" :
-                            b.status === "Pending" ? "bg-amber-500/10 text-amber-600 border border-amber-500/30" :
+                            b.status === "Approved" || b.status === "Assigned" || b.status === "Pending" ? "bg-emerald-500/10 text-emerald-600 border border-emerald-500/30" :
                             "bg-destructive/10 text-destructive border border-destructive/30"
                           }`}>
-                            {b.status === "Pending" ? "🟡 Pending Approval" : b.status === "Approved" ? "🟢 Approved" : b.status === "Assigned" ? "🔵 Assigned" : b.status}
+                            {b.status === "Pending" ? "🟢 Booking Completed" : b.status === "Approved" ? "🟢 Approved" : b.status === "Assigned" ? "🔵 Assigned" : b.status}
                           </span>
                         </div>
                         <p className="text-xs text-muted-foreground">Customer: <strong className="text-foreground">{b.customer}</strong> ({b.customerEmail})</p>
