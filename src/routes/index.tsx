@@ -25,6 +25,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { WhatsAppIcon, createWhatsAppSupportUrl } from "../components/ui/WhatsAppIcon";
 import { getPublicReviews } from "../lib/api/review.functions";
+import { PriceListTable } from "../components/pricing/PriceListTable";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -392,19 +393,19 @@ function WhyChooseUs() {
 
 function Services() {
   const services = [
-    { title: "One-Way Chauffeur", desc: "Point A to B driving service for your personal car.", price: "From ₹299", icon: Compass },
-    { title: "Round-Trip Chauffeur", desc: "Two-way driver service for round trips & return journeys.", price: "From ₹349", icon: RefreshCw },
-    { title: "Full-Day Chauffeur", desc: "Dedicated driver for 8 to 24 hours.", price: "From ₹1,499", icon: Award },
-    { title: "Airport Chauffeur", desc: "Punctual airport pickup/drop in your vehicle.", price: "From ₹499", icon: Plane },
-    { title: "Designated Driver", desc: "Safe drive home after parties & nightlife.", price: "From ₹399", icon: Shield },
-    { title: "Corporate Chauffeur", desc: "Executive drivers for business meetings.", price: "From ₹799", icon: Building2 },
-    { title: "Event Chauffeur", desc: "Weddings and special family functions.", price: "From ₹699", icon: PartyPopper },
-    { title: "Outstation Chauffeur", desc: "Experienced highway driver for intercity trips.", price: "From ₹999", icon: Navigation },
+    { title: "One-Way Chauffeur", desc: "Point A to B driving service for your personal car.", price: "From ₹299", sub: "Day: ₹299 · Night: ₹399", icon: Compass },
+    { title: "Round-Trip Chauffeur", desc: "Two-way driver service for round trips & return journeys.", price: "From ₹299", sub: "Day: ₹299 · Night: ₹399", icon: RefreshCw },
+    { title: "Full-Day Chauffeur", desc: "Dedicated driver for 12 hours of driving.", price: "From ₹1,699", sub: "Day: ₹1,699 · Night: ₹2,199", icon: Award },
+    { title: "Airport Chauffeur", desc: "Punctual airport pickup/drop in your vehicle.", price: "From ₹499", sub: "Fixed Transfer Standard", icon: Plane },
+    { title: "Designated Driver", desc: "Safe drive home after parties & nightlife.", price: "From ₹399", sub: "Night Duty Special", icon: Shield },
+    { title: "Corporate Chauffeur", desc: "Executive drivers for business meetings.", price: "From ₹799", sub: "Executive Standard", icon: Building2 },
+    { title: "Event Chauffeur", desc: "Weddings and special family functions.", price: "From ₹699", sub: "Wedding & Occasions", icon: PartyPopper },
+    { title: "Outstation Chauffeur", desc: "Highway drivers for inside & outside Kerala trips.", price: "From ₹299", sub: "Inside & Outside Kerala", icon: Navigation },
   ];
 
   return (
     <section className="bg-subtle/70 py-16 md:py-24 border-y border-border/60">
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-7xl space-y-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-primary">Chauffeur Services</p>
@@ -421,7 +422,7 @@ function Services() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
             <div
               key={i}
@@ -435,8 +436,11 @@ function Services() {
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.desc}</p>
               </div>
 
-              <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-4">
-                <span className="text-xs font-bold text-primary">{s.price}</span>
+              <div className="mt-6 border-t border-border/60 pt-4 flex items-center justify-between">
+                <div>
+                  <span className="text-sm font-extrabold text-primary block">{s.price}</span>
+                  <span className="text-[10px] text-muted-foreground font-semibold block">{s.sub}</span>
+                </div>
                 <Link
                   to="/book"
                   className="inline-flex items-center gap-1 text-xs font-semibold text-foreground group-hover:text-primary transition-colors"
@@ -447,6 +451,11 @@ function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Official Price List Table matching PDF */}
+        <div className="reveal pt-6 border-t border-border/70">
+          <PriceListTable showHeader={true} />
         </div>
       </div>
     </section>

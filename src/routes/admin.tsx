@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { CHAUFFEUR_SERVICES } from "@/lib/pricing";
+import { PriceListTable } from "@/components/pricing/PriceListTable";
 import { useAuthUser } from "@/lib/auth";
 import { getAllBookingsFn } from "@/lib/api/trip.functions";
 import { getAllAdminReviews, updateReviewAdminFn } from "@/lib/api/review.functions";
@@ -796,16 +797,25 @@ function AdminPanel() {
 
           {/* Services Catalog Tab */}
           {activeTab === "services" && (
-            <div className="grid gap-4 md:grid-cols-4">
-              {Object.entries(CHAUFFEUR_SERVICES).map(([key, s]) => (
-                <div key={key} className="rounded-3xl border border-border bg-background p-5 shadow-soft space-y-2">
-                  <h3 className="font-bold text-base text-foreground">{s.title}</h3>
-                  <p className="text-xs text-muted-foreground">{s.description}</p>
-                  <div className="border-t border-border pt-2 text-xs font-semibold text-primary">
-                    Base: ₹{s.baseFare} · ₹{s.ratePerHour}/hr
+            <div className="space-y-8">
+              <div className="grid gap-4 md:grid-cols-4">
+                {Object.entries(CHAUFFEUR_SERVICES).map(([key, s]) => (
+                  <div key={key} className="rounded-3xl border border-border bg-background p-5 shadow-soft space-y-2 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-base text-foreground">{s.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1">{s.description}</p>
+                    </div>
+                    <div className="border-t border-border pt-2 text-xs font-semibold text-primary space-y-0.5">
+                      <div>Day: ₹{s.baseFare} · +₹{s.ratePerHour}/hr</div>
+                      <div className="text-[11px] text-indigo-600 dark:text-indigo-400">Night: ₹{s.nightBaseFare} · +₹{s.nightRatePerHour}/hr</div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div className="border-t border-border/70 pt-4">
+                <PriceListTable showHeader={true} />
+              </div>
             </div>
           )}
 

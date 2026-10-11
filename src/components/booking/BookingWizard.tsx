@@ -13,6 +13,7 @@ import { useAuthUser } from "@/lib/auth";
 import { downloadRideSummaryReceipt } from "@/lib/pdfUtils";
 import { WhatsAppIcon, createWhatsAppSupportUrl } from "@/components/ui/WhatsAppIcon";
 import { toast } from "sonner";
+import { PriceListTable } from "../pricing/PriceListTable";
 
 type Transmission = "automatic" | "manual";
 type Timing = "now" | "later";
@@ -39,14 +40,16 @@ interface State {
 const STEPS = ["Service", "Pickup", "Schedule", "Review & Book", "Confirmed"];
 
 const SERVICE_ICONS: Record<ServiceType, any> = {
-  "One-Way Chauffeur": Compass,
   "Round-Trip Chauffeur": RefreshCw,
+  "One-Way Chauffeur": Compass,
+  "Outstation Trip (Inside Kerala)": Navigation,
+  "Outstation Trip (Outside Kerala)": Navigation,
   "Full-Day Chauffeur": Award,
+  "Outstation Chauffeur": Navigation,
   "Airport Chauffeur": Plane,
   "Designated Driver": Shield,
   "Corporate Chauffeur": Building2,
   "Event Chauffeur": PartyPopper,
-  "Outstation Chauffeur": Navigation,
 };
 
 export function BookingWizard() {
@@ -191,9 +194,15 @@ function StepSelectService({ s, set, onNext }: { s: State; set: <K extends keyof
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
 
-              <div className="mt-4 border-t border-border/60 pt-3 flex items-center justify-between text-xs font-semibold">
-                <span className="text-primary">₹{service.baseFare} Base</span>
-                <span className="text-muted-foreground">+₹{service.ratePerHour}/hr</span>
+              <div className="mt-4 border-t border-border/60 pt-3 flex flex-col gap-1 text-xs">
+                <div className="flex items-center justify-between font-bold">
+                  <span className="text-primary">Day: ₹{service.baseFare}</span>
+                  <span className="text-muted-foreground">+₹{service.ratePerHour}/hr</span>
+                </div>
+                <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+                  <span className="text-indigo-600 dark:text-indigo-400 font-semibold">Night: ₹{service.nightBaseFare || (service.baseFare + 100)}</span>
+                  <span>+₹{service.nightRatePerHour || (service.ratePerHour + 40)}/hr</span>
+                </div>
               </div>
             </div>
           );
@@ -203,11 +212,16 @@ function StepSelectService({ s, set, onNext }: { s: State; set: <K extends keyof
       <div className="flex justify-end pt-4">
         <button
           onClick={onNext}
-          className="inline-flex items-center gap-2 rounded-2xl bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-soft hover:brightness-110 active:scale-98"
+          className="inline-flex items-center gap-2 rounded-2xl bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-soft hover:brightness-110 active:scale-98 cursor-pointer"
         >
           <span>Continue to Pickup Location</span>
           <ArrowRight className="h-4 w-4" />
         </button>
+      </div>
+
+      {/* Official Price List Reference Accordion / Section */}
+      <div className="pt-6 border-t border-border/70">
+        <PriceListTable showHeader={false} />
       </div>
     </div>
   );

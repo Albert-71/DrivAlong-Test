@@ -12,5 +12,7 @@ export {
   formatEta,
   formatCurrency,
   computeEtaDate,
+  OFFICIAL_PRICE_LIST,
+  OFFICIAL_PRICE_NOTES,
 } from "@/lib/pricing";
-export type { ServiceType, DurationOption, FareBreakdown } from "@/lib/pricing";
+export type { ServiceType, DurationOption, FareBreakdown, PriceListRow } from "@/lib/pricing";

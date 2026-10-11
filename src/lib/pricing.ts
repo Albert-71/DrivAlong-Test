@@ -17,6 +17,8 @@ export const PRICING = {
 export type ServiceType =
   | "One-Way Chauffeur"
   | "Round-Trip Chauffeur"
+  | "Outstation Trip (Inside Kerala)"
+  | "Outstation Trip (Outside Kerala)"
   | "Full-Day Chauffeur"
   | "Airport Chauffeur"
   | "Designated Driver"
@@ -43,73 +45,224 @@ export const DURATION_HOURS: Record<DurationOption, number> = {
   "Full Day": 24,
 };
 
-export const CHAUFFEUR_SERVICES: Record<
-  ServiceType,
-  {
-    title: string;
-    description: string;
-    baseFare: number;
-    ratePerHour: number;
-    ratePerKm: number;
-  }
-> = {
+export interface ServicePricingDetail {
+  title: string;
+  description: string;
+  baseFare: number;
+  nightBaseFare: number;
+  ratePerHour: number;
+  nightRatePerHour: number;
+  ratePerKm: number;
+  convenienceCharge: string;
+  includedDuration?: string;
+}
+
+export const CHAUFFEUR_SERVICES: Record<ServiceType, ServicePricingDetail> = {
+  "Round-Trip Chauffeur": {
+    title: "Round-Trip Chauffeur",
+    description: "Two-way driver service for round trips & return journeys in your car.",
+    baseFare: 299,
+    nightBaseFare: 399,
+    ratePerHour: 129,
+    nightRatePerHour: 169,
+    ratePerKm: 10,
+    convenienceCharge: "Nil",
+    includedDuration: "1st hr included",
+  },
   "One-Way Chauffeur": {
     title: "One-Way Chauffeur",
     description: "Hire a professional driver for a single point-to-point trip in your car.",
     baseFare: 299,
-    ratePerHour: 120,
-    ratePerKm: 13,
+    nightBaseFare: 399,
+    ratePerHour: 129,
+    nightRatePerHour: 169,
+    ratePerKm: 8,
+    convenienceCharge: "₹8/km after 8 km (Day) · ₹16/km after 5 km (Night)",
+    includedDuration: "1st hr included",
   },
-  "Round-Trip Chauffeur": {
-    title: "Round-Trip Chauffeur",
-    description: "Two-way driver service for round trips, return journeys, shopping & errands.",
-    baseFare: 349,
-    ratePerHour: 140,
-    ratePerKm: 10,
+  "Outstation Trip (Inside Kerala)": {
+    title: "Outstation Trip (Inside Kerala)",
+    description: "Experienced highway driver for trips anywhere inside Kerala state.",
+    baseFare: 299,
+    nightBaseFare: 399,
+    ratePerHour: 129,
+    nightRatePerHour: 169,
+    ratePerKm: 12,
+    convenienceCharge: "For One Way: ₹499–999 (Day) · ₹999–1499 (Night)",
+    includedDuration: "1st hr included",
+  },
+  "Outstation Trip (Outside Kerala)": {
+    title: "Outstation Trip (Outside Kerala)",
+    description: "Verified long-distance chauffeur for interstate travel outside Kerala.",
+    baseFare: 299,
+    nightBaseFare: 399,
+    ratePerHour: 129,
+    nightRatePerHour: 169,
+    ratePerKm: 14,
+    convenienceCharge: "For One Way: ₹999–1499 (Day) · ₹1499–1999 (Night)",
+    includedDuration: "1st hr included",
   },
   "Full-Day Chauffeur": {
     title: "Full-Day Chauffeur",
-    description: "Dedicated chauffeur for your vehicle for the entire day (up to 8 hrs included).",
-    baseFare: 1499,
-    ratePerHour: 100,
+    description: "Dedicated driver for 12 hours of city or regional travel in your personal car.",
+    baseFare: 1699,
+    nightBaseFare: 2199,
+    ratePerHour: 169,
+    nightRatePerHour: 219,
     ratePerKm: 0,
+    convenienceCharge: "Nil",
+    includedDuration: "12 hrs included",
+  },
+  "Outstation Chauffeur": {
+    title: "Outstation Chauffeur",
+    description: "Highway chauffeurs for intercity inside and outside Kerala journeys.",
+    baseFare: 299,
+    nightBaseFare: 399,
+    ratePerHour: 129,
+    nightRatePerHour: 169,
+    ratePerKm: 12,
+    convenienceCharge: "For One Way: ₹499–1999",
+    includedDuration: "1st hr included",
   },
   "Airport Chauffeur": {
     title: "Airport Chauffeur",
-    description: "Reliable airport pickup or drop-off service in the comfort of your own car.",
+    description: "Punctual airport pickup or drop-off service in the comfort of your car.",
     baseFare: 499,
-    ratePerHour: 120,
-    ratePerKm: 13,
+    nightBaseFare: 599,
+    ratePerHour: 129,
+    nightRatePerHour: 169,
+    ratePerKm: 12,
+    convenienceCharge: "Standard Airport Transfer",
+    includedDuration: "2 hrs included",
   },
   "Designated Driver": {
     title: "Designated Driver",
     description: "Safe drive home service after parties, events, or nightlife in your car.",
     baseFare: 399,
-    ratePerHour: 130,
-    ratePerKm: 10,
+    nightBaseFare: 399,
+    ratePerHour: 169,
+    nightRatePerHour: 169,
+    ratePerKm: 12,
+    convenienceCharge: "Night-Duty Safe Return",
+    includedDuration: "1st hr included",
   },
   "Corporate Chauffeur": {
     title: "Corporate Chauffeur",
-    description: "Executive chauffeurs for business meetings, VIP guests, and corporate mobility.",
+    description: "Executive chauffeurs for business meetings, VIP guests, and corporate travel.",
     baseFare: 799,
+    nightBaseFare: 999,
     ratePerHour: 150,
+    nightRatePerHour: 190,
     ratePerKm: 12,
+    convenienceCharge: "Executive Chauffeur Service",
+    includedDuration: "4 hrs included",
   },
   "Event Chauffeur": {
     title: "Event Chauffeur",
-    description: "Chauffeur service tailored for weddings, family functions, and special events.",
+    description: "Tailored chauffeur service for weddings, family functions, and celebrations.",
     baseFare: 699,
-    ratePerHour: 120,
+    nightBaseFare: 899,
+    ratePerHour: 140,
+    nightRatePerHour: 180,
     ratePerKm: 10,
-  },
-  "Outstation Chauffeur": {
-    title: "Outstation Chauffeur",
-    description: "Experienced highway drivers for intercity long-distance journeys in your vehicle.",
-    baseFare: 999,
-    ratePerHour: 80,
-    ratePerKm: 15,
+    convenienceCharge: "Event Host Chauffeur",
+    includedDuration: "4 hrs included",
   },
 };
+
+export interface PriceListRow {
+  service: string;
+  day: {
+    basePrice: string;
+    perHour: string;
+    convenienceCharge: string;
+  };
+  night: {
+    basePrice: string;
+    perHour: string;
+    convenienceCharge: string;
+  };
+}
+
+/** Official price list matching the Driv A Long PDF Document */
+export const OFFICIAL_PRICE_LIST: PriceListRow[] = [
+  {
+    service: "Round Trip",
+    day: {
+      basePrice: "₹299",
+      perHour: "+₹129",
+      convenienceCharge: "Nil",
+    },
+    night: {
+      basePrice: "₹399",
+      perHour: "+₹169",
+      convenienceCharge: "Nil",
+    },
+  },
+  {
+    service: "One Way Trip",
+    day: {
+      basePrice: "₹299",
+      perHour: "+₹129",
+      convenienceCharge: "₹8 /km after 8 km",
+    },
+    night: {
+      basePrice: "₹399",
+      perHour: "+₹169",
+      convenienceCharge: "₹16 /km after 5 km",
+    },
+  },
+  {
+    service: "Outstation Trip (Inside Kerala)",
+    day: {
+      basePrice: "₹299",
+      perHour: "+₹129",
+      convenienceCharge: "For One Way: ₹499–999",
+    },
+    night: {
+      basePrice: "₹399",
+      perHour: "+₹169",
+      convenienceCharge: "For One Way: ₹999–1499",
+    },
+  },
+  {
+    service: "Outstation Trip (Outside Kerala)",
+    day: {
+      basePrice: "₹299",
+      perHour: "+₹129",
+      convenienceCharge: "For One Way: ₹999–1499",
+    },
+    night: {
+      basePrice: "₹399",
+      perHour: "+₹169",
+      convenienceCharge: "For One Way: ₹1499–1999",
+    },
+  },
+  {
+    service: "Full Day Chauffeur",
+    day: {
+      basePrice: "₹1699 (12 hrs)",
+      perHour: "+₹169",
+      convenienceCharge: "Nil",
+    },
+    night: {
+      basePrice: "₹2199 (12 hrs)",
+      perHour: "+₹219",
+      convenienceCharge: "Nil",
+    },
+  },
+];
+
+export const OFFICIAL_PRICE_NOTES = [
+  "Base Fare: Chauffeur service starts from ₹299, as applicable to the selected service.",
+  "Additional Hours: After the included/base duration, ₹129 (Day) / ₹169 (Night) will be charged for every additional hour.",
+  "Convenience Fee: A convenience fee is applicable per trip, except for Round Trip bookings.",
+  "Night Charges: Additional charges apply for services during designated night-duty hours (Base: ₹399, +₹169/hr or +₹219/hr).",
+  "Outstation: Driver allowance, food/accommodation or other applicable outstation expenses should be clearly communicated at booking.",
+  "Cancellation: Cancellation charges may apply depending on the time of cancellation and driver allocation status.",
+  "Final Fare: The final amount depends on the actual service duration and any applicable additional charges.",
+  "Rate Revision: Driv A Long Private Limited reserves the right to revise its pricing; applicable charges will be communicated to the customer when the booking is confirmed.",
+];
 
 export interface FareBreakdown {
   baseFare: number;

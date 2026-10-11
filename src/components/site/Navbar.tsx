@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
+  { to: "/services", label: "Services & Pricing" },
   { to: "/how-it-works", label: "How It Works" },
   { to: "/dashboard", label: "Customer Dashboard" },
   { to: "/driver", label: "Driver Portal" },

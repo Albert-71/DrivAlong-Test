@@ -125,7 +125,7 @@ const Trip = mongoose.models.Trip || mongoose.model("Trip", TripSchema, "trips")
 // Driv-A-Long pricing formula
 //   Total Fare = Base Fare (₹299) + (Distance in KM × ₹13) + (Duration in hours × ₹120)
 // ---------------------------------------------------------------------
-const PRICING = { baseFare: 299, ratePerKm: 13, ratePerHour: 120 };
+const PRICING = { baseFare: 299, ratePerKm: 12, ratePerHour: 129 };
 const VEHICLE_MULTIPLIERS = {
   hatchback: 0.85,
   sedan: 1,
