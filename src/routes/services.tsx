@@ -17,8 +17,9 @@ export const Route = createFileRoute("/services")({
 const services = [
   { icon: Compass, title: "One-Way Chauffeur", desc: "Single point-to-point trip in your personal car.", price: "Day: ₹299 · Night: ₹399", sub: "+₹129/hr" },
   { icon: RefreshCw, title: "Round-Trip Chauffeur", desc: "Two-way driver service for return journeys and errands.", price: "Day: ₹299 · Night: ₹399", sub: "+₹129/hr · No conv. fee" },
+  { icon: Navigation, title: "Outstation Trip (Inside Kerala)", desc: "Experienced highway driver for trips anywhere inside Kerala state.", price: "Day: ₹299 · Night: ₹399", sub: "+₹129/hr · One-way fee ₹499–999" },
+  { icon: Navigation, title: "Outstation Trip (Outside Kerala)", desc: "Verified long-distance chauffeur for interstate travel outside Kerala.", price: "Day: ₹299 · Night: ₹399", sub: "+₹129/hr · One-way fee ₹999–1499" },
   { icon: Award, title: "Full-Day Chauffeur", desc: "Dedicated driver for 12 hours of driving.", price: "Day: ₹1,699 · Night: ₹2,199", sub: "12 hours included" },
-  { icon: Navigation, title: "Outstation Chauffeur", desc: "Inside Kerala & Outside Kerala highway trips.", price: "Day: ₹299 · Night: ₹399", sub: "+ One-way conv. fee" },
   { icon: Plane, title: "Airport Chauffeur", desc: "Airport pickup or drop-off service in your vehicle.", price: "From ₹499", sub: "Fixed Transfer Standard" },
   { icon: Shield, title: "Designated Driver", desc: "Safe drive home service after parties & nightlife.", price: "From ₹399", sub: "Night Duty Service" },
   { icon: Building2, title: "Corporate Chauffeur", desc: "Executive chauffeurs for business meetings and VIPs.", price: "From ₹799", sub: "Executive Standard" },

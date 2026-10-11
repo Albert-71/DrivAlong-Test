@@ -32,7 +32,7 @@ const INITIAL_VERIFIED_REVIEWS = [
     rating: 5,
     title: "Always Safe & Verified",
     comment: "We use Driv A Long outstation chauffeurs whenever we travel in our own car. Always punctual, always safe, always verified.",
-    rideType: "Outstation Chauffeur",
+    rideType: "Outstation Trip (Inside Kerala)",
     recommend: true,
     status: "Approved",
     isApproved: true,

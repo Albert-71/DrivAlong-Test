@@ -45,7 +45,6 @@ const SERVICE_ICONS: Record<ServiceType, any> = {
   "Outstation Trip (Inside Kerala)": Navigation,
   "Outstation Trip (Outside Kerala)": Navigation,
   "Full-Day Chauffeur": Award,
-  "Outstation Chauffeur": Navigation,
   "Airport Chauffeur": Plane,
   "Designated Driver": Shield,
   "Corporate Chauffeur": Building2,

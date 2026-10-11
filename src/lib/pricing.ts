@@ -23,8 +23,7 @@ export type ServiceType =
   | "Airport Chauffeur"
   | "Designated Driver"
   | "Corporate Chauffeur"
-  | "Event Chauffeur"
-  | "Outstation Chauffeur";
+  | "Event Chauffeur";
 
 export type DurationOption =
   | "1 Hour"
@@ -112,17 +111,6 @@ export const CHAUFFEUR_SERVICES: Record<ServiceType, ServicePricingDetail> = {
     ratePerKm: 0,
     convenienceCharge: "Nil",
     includedDuration: "12 hrs included",
-  },
-  "Outstation Chauffeur": {
-    title: "Outstation Chauffeur",
-    description: "Highway chauffeurs for intercity inside and outside Kerala journeys.",
-    baseFare: 299,
-    nightBaseFare: 399,
-    ratePerHour: 129,
-    nightRatePerHour: 169,
-    ratePerKm: 12,
-    convenienceCharge: "For One Way: ₹499–1999",
-    includedDuration: "1st hr included",
   },
   "Airport Chauffeur": {
     title: "Airport Chauffeur",

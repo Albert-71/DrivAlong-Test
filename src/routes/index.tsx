@@ -399,8 +399,9 @@ function Services() {
     { title: "Airport Chauffeur", desc: "Punctual airport pickup/drop in your vehicle.", price: "From ₹499", sub: "Fixed Transfer Standard", icon: Plane },
     { title: "Designated Driver", desc: "Safe drive home after parties & nightlife.", price: "From ₹399", sub: "Night Duty Special", icon: Shield },
     { title: "Corporate Chauffeur", desc: "Executive drivers for business meetings.", price: "From ₹799", sub: "Executive Standard", icon: Building2 },
+    { title: "Outstation Trip (Inside Kerala)", desc: "Highway chauffeurs for trips anywhere inside Kerala state.", price: "From ₹299", sub: "Day: ₹299 · Night: ₹399", icon: Navigation },
+    { title: "Outstation Trip (Outside Kerala)", desc: "Verified long-distance drivers for interstate travel outside Kerala.", price: "From ₹299", sub: "Day: ₹299 · Night: ₹399", icon: Navigation },
     { title: "Event Chauffeur", desc: "Weddings and special family functions.", price: "From ₹699", sub: "Wedding & Occasions", icon: PartyPopper },
-    { title: "Outstation Chauffeur", desc: "Highway drivers for inside & outside Kerala trips.", price: "From ₹299", sub: "Inside & Outside Kerala", icon: Navigation },
   ];
 
   return (
