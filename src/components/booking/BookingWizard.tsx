@@ -13,7 +13,6 @@ import { useAuthUser } from "@/lib/auth";
 import { downloadRideSummaryReceipt } from "@/lib/pdfUtils";
 import { WhatsAppIcon, createWhatsAppSupportUrl } from "@/components/ui/WhatsAppIcon";
 import { toast } from "sonner";
-import { PriceListTable } from "../pricing/PriceListTable";
 
 type Transmission = "automatic" | "manual";
 type Timing = "now" | "later";
@@ -218,9 +217,17 @@ function StepSelectService({ s, set, onNext }: { s: State; set: <K extends keyof
         </button>
       </div>
 
-      {/* Official Price List Reference Accordion / Section */}
-      <div className="pt-6 border-t border-border/70">
-        <PriceListTable showHeader={false} />
+      {/* Official Pricing Notes & Terms Footnote */}
+      <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
+        <span>Transparent tariff starting at ₹299 (Day) · ₹399 (Night).</span>
+        <Link
+          to="/pricing-terms"
+          target="_blank"
+          className="font-semibold text-primary hover:underline inline-flex items-center gap-1"
+        >
+          <span>Official Pricing Notes & Terms</span>
+          <ArrowRight className="h-3 w-3" />
+        </Link>
       </div>
     </div>
   );

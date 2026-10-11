@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Compass, RefreshCw, Award, Plane, Shield, Building2, PartyPopper, Navigation, ArrowRight } from "lucide-react";
-import { PriceListTable } from "@/components/pricing/PriceListTable";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -67,9 +66,22 @@ function Services() {
             ))}
           </div>
 
-          {/* Full Official Tariff Section */}
-          <div className="border-t border-border/70 pt-8">
-            <PriceListTable showHeader={true} />
+          {/* Official Pricing Notes & Terms Callout */}
+          <div className="rounded-3xl border border-border/80 bg-background p-8 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-1">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary">Official Rate Card & Notes</span>
+              <h3 className="text-xl font-bold text-foreground">Official Pricing Notes & Terms</h3>
+              <p className="text-xs text-muted-foreground max-w-xl">
+                Review complete day & night tariff breakdown, additional hour charges (+₹129/hr Day · +₹169/hr Night), outstation allowance rules, and driver allocation policies.
+              </p>
+            </div>
+            <Link
+              to="/pricing-terms"
+              className="inline-flex items-center gap-2 rounded-2xl bg-primary px-6 py-3 text-xs font-bold text-primary-foreground shadow-soft hover:brightness-110 active:scale-98 transition shrink-0"
+            >
+              <span>View Official Pricing Notes & Terms</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

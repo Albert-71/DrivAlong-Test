@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Shield, FileText, RotateCcw, Building2, Mail, Phone, MapPin } from "lucide-react";
+import { Shield, FileText, RotateCcw, Building2, Mail, Phone, MapPin, ReceiptText } from "lucide-react";
 
 interface LegalLayoutProps {
   title: string;
   subtitle?: string;
-  activeTab: "terms" | "privacy" | "refund";
+  activeTab: "terms" | "privacy" | "refund" | "pricing";
   children: React.ReactNode;
 }
 
@@ -63,6 +63,18 @@ export function LegalLayout({ title, subtitle, activeTab, children }: LegalLayou
             >
               <RotateCcw className="h-4 w-4" />
               <span>Refund & Cancellation</span>
+            </Link>
+
+            <Link
+              to="/pricing-terms"
+              className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs font-bold transition ${
+                activeTab === "pricing"
+                  ? "bg-[#F4B400] text-slate-950 shadow-soft"
+                  : "bg-white/10 text-white hover:bg-white/20"
+              }`}
+            >
+              <ReceiptText className="h-4 w-4" />
+              <span>Official Pricing Notes & Terms</span>
             </Link>
           </div>
         </div>

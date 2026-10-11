@@ -18,6 +18,8 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DriverRouteImport } from './routes/driver'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PricingTermsRouteImport } from './routes/pricing-terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RefundRouteImport } from './routes/refund'
@@ -72,6 +74,16 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingTermsRoute = PricingTermsRouteImport.update({
+  id: '/pricing-terms',
+  path: '/pricing-terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -123,6 +135,8 @@ export interface FileRoutesByFullPath {
   '/driver': typeof DriverRoute
   '/how-it-works': typeof HowItWorksRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/pricing-terms': typeof PricingTermsRoute
   '/privacy': typeof PrivacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund': typeof RefundRoute
@@ -142,6 +156,8 @@ export interface FileRoutesByTo {
   '/driver': typeof DriverRoute
   '/how-it-works': typeof HowItWorksRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/pricing-terms': typeof PricingTermsRoute
   '/privacy': typeof PrivacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund': typeof RefundRoute
@@ -162,6 +178,8 @@ export interface FileRoutesById {
   '/driver': typeof DriverRoute
   '/how-it-works': typeof HowItWorksRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/pricing-terms': typeof PricingTermsRoute
   '/privacy': typeof PrivacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund': typeof RefundRoute
@@ -183,6 +201,8 @@ export interface FileRouteTypes {
     | '/driver'
     | '/how-it-works'
     | '/login'
+    | '/pricing'
+    | '/pricing-terms'
     | '/privacy'
     | '/privacy-policy'
     | '/refund'
@@ -202,6 +222,8 @@ export interface FileRouteTypes {
     | '/driver'
     | '/how-it-works'
     | '/login'
+    | '/pricing'
+    | '/pricing-terms'
     | '/privacy'
     | '/privacy-policy'
     | '/refund'
@@ -221,6 +243,8 @@ export interface FileRouteTypes {
     | '/driver'
     | '/how-it-works'
     | '/login'
+    | '/pricing'
+    | '/pricing-terms'
     | '/privacy'
     | '/privacy-policy'
     | '/refund'
@@ -241,6 +265,8 @@ export interface RootRouteChildren {
   DriverRoute: typeof DriverRoute
   HowItWorksRoute: typeof HowItWorksRoute
   LoginRoute: typeof LoginRoute
+  PricingRoute: typeof PricingRoute
+  PricingTermsRoute: typeof PricingTermsRoute
   PrivacyRoute: typeof PrivacyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RefundRoute: typeof RefundRoute
@@ -316,6 +342,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing-terms': {
+      id: '/pricing-terms'
+      path: '/pricing-terms'
+      fullPath: '/pricing-terms'
+      preLoaderRoute: typeof PricingTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -385,6 +425,8 @@ const rootRouteChildren: RootRouteChildren = {
   DriverRoute: DriverRoute,
   HowItWorksRoute: HowItWorksRoute,
   LoginRoute: LoginRoute,
+  PricingRoute: PricingRoute,
+  PricingTermsRoute: PricingTermsRoute,
   PrivacyRoute: PrivacyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RefundRoute: RefundRoute,

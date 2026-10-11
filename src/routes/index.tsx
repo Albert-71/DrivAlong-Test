@@ -25,7 +25,6 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { WhatsAppIcon, createWhatsAppSupportUrl } from "../components/ui/WhatsAppIcon";
 import { getPublicReviews } from "../lib/api/review.functions";
-import { PriceListTable } from "../components/pricing/PriceListTable";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -454,9 +453,21 @@ function Services() {
           ))}
         </div>
 
-        {/* Official Price List Table matching PDF */}
-        <div className="reveal pt-6 border-t border-border/70">
-          <PriceListTable showHeader={true} />
+        {/* Official Pricing Notes & Terms Callout */}
+        <div className="reveal flex flex-col sm:flex-row items-center justify-between gap-4 rounded-3xl border border-border/80 bg-background p-6 shadow-soft">
+          <div className="space-y-1 text-center sm:text-left">
+            <h4 className="font-bold text-sm text-foreground">Official Pricing Notes & Terms</h4>
+            <p className="text-xs text-muted-foreground">
+              Review full day & night tariff schedules, additional hour slabs, and outstation policies.
+            </p>
+          </div>
+          <Link
+            to="/pricing-terms"
+            className="inline-flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground shadow-soft hover:brightness-110 active:scale-98 transition shrink-0"
+          >
+            <span>View Official Pricing Notes & Terms</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
       </div>
     </section>

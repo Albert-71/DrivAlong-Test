@@ -87,6 +87,7 @@ export function Footer() {
             { to: "/privacy-policy", label: "Privacy Policy" },
             { to: "/terms-of-service", label: "Terms of Service" },
             { to: "/refund-policy", label: "Refund Policy" },
+            { to: "/pricing-terms", label: "Official Pricing Notes & Terms" },
             { to: "/contact", label: "Support" },
           ]} />
         </div>
